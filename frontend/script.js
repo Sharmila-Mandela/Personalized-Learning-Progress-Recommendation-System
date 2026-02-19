@@ -1,4 +1,4 @@
-const BASE_URL = "http://127.0.0.1:5000";
+const BASE_URL = "https://learning-backend-7ld8.onrender.com";
 
 // create user
 async function createUser(){
