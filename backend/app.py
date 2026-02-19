@@ -3,11 +3,13 @@ from flask_cors import CORS
 import sqlite3
 import pandas as pd
 from sklearn.cluster import KMeans
+import os
 
 app = Flask(__name__)
 CORS(app)
 
-DB = "database.db"
+DB = os.path.join(os.path.dirname(__file__), "database.db")
+
 
 # ---------------- DATABASE CONNECTION ----------------
 def get_db():
