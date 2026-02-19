@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Learning  Quiz</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#667eea,#764ba2);
+min-height:100vh;
+}
+
+/* HEADER */
+.header{
+width:100%;
+height:140px;
+background:linear-gradient(45deg,#141e30,#243b55);
+color:white;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+box-shadow:0 4px 15px rgba(0,0,0,0.3);
+}
+
+.header h1{
+font-size:34px;
+}
+
+.header p{
+margin-top:8px;
+}
+
+/* QUIZ */
+.quiz-container{
+width:90%;
+max-width:900px;
+margin:40px auto;
+background:white;
+padding:40px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.question{
+margin:25px 0;
+padding:15px;
+background:#f7f9fc;
+border-radius:10px;
+}
+
+.question p{
+font-weight:bold;
+font-size:18px;
+margin-bottom:10px;
+}
+
+label{
+display:block;
+padding:6px;
+font-size:16px;
+cursor:pointer;
+}
+
+input[type="radio"]{
+margin-right:10px;
+}
+
+.submit-btn{
+display:block;
+margin:30px auto;
+padding:15px 40px;
+font-size:18px;
+font-weight:bold;
+border:none;
+border-radius:10px;
+background:linear-gradient(45deg,#667eea,#764ba2);
+color:white;
+cursor:pointer;
+}
+
+.result-box{
+display:none;
+margin-top:25px;
+padding:20px;
+background:#eaf3ff;
+border-radius:10px;
+text-align:center;
+font-size:22px;
+font-weight:bold;
+}
+
+.back-btn{
+display:block;
+margin:25px auto;
+padding:12px 30px;
+font-size:16px;
+font-weight:bold;
+border:none;
+border-radius:8px;
+background:#28a745;
+color:white;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h1>Personalized Learning Quiz</h1>
+<p>Answer honestly to get best recommendations</p>
+</div>
+
+<div class="quiz-container">
+
+<form>
+
+
+
+<div class="question">
+<p>1. Why should a student track learning progress regularly?</p>
+<label><input type="radio" name="q1" value="0"> To waste time</label>
+<label><input type="radio" name="q1" value="1"> To identify strengths and weaknesses</label>
+<label><input type="radio" name="q1" value="0"> To avoid studying</label>
+<label><input type="radio" name="q1" value="0"> To reduce marks</label>
+</div>
+
+<div class="question">
+<p>2. Which of the following is an example of real-life AI use?</p>
+<label><input type="radio" name="q2" value="0"> Calculator</label>
+<label><input type="radio" name="q2" value="1"> Recommendation on shopping apps</label>
+<label><input type="radio" name="q2" value="0"> Keyboard typing</label>
+<label><input type="radio" name="q2" value="0"> Screenshot</label>
+</div>
+
+<div class="question">
+<p>3. What will happen if a program has logical errors?</p>
+<label><input type="radio" name="q3" value="0"> It will never run</label>
+<label><input type="radio" name="q3" value="1"> It will run but give wrong output</label>
+<label><input type="radio" name="q3" value="0"> Computer will shut down</label>
+<label><input type="radio" name="q3" value="0"> It will delete files</label>
+</div>
+
+<div class="question">
+<p>4. Which skill is most important to improve programming?</p>
+<label><input type="radio" name="q4" value="0"> Watching movies</label>
+<label><input type="radio" name="q4" value="1"> Practicing problems regularly</label>
+<label><input type="radio" name="q4" value="0"> Avoiding errors</label>
+<label><input type="radio" name="q4" value="0"> Memorizing theory only</label>
+</div>
+
+<div class="question">
+<p>5. What is the main goal of a personalized learning system?</p>
+<label><input type="radio" name="q5" value="0"> Give same content to everyone</label>
+<label><input type="radio" name="q5" value="1"> Suggest learning based on performance</label>
+<label><input type="radio" name="q5" value="0"> Replace teachers</label>
+<label><input type="radio" name="q5" value="0"> Reduce practice</label>
+</div>
+
+<div class="question">
+<p>6. Why do developers use functions in programming?</p>
+<label><input type="radio" name="q6" value="0"> To decorate code</label>
+<label><input type="radio" name="q6" value="1"> To reuse code easily</label>
+<label><input type="radio" name="q6" value="0"> To delete variables</label>
+<label><input type="radio" name="q6" value="0"> To slow programs</label>
+</div>
+
+<div class="question">
+<p>7. What does Machine Learning mainly help computers do?</p>
+<label><input type="radio" name="q7" value="0"> Increase brightness</label>
+<label><input type="radio" name="q7" value="1"> Learn patterns and predict</label>
+<label><input type="radio" name="q7" value="0"> Turn off automatically</label>
+<label><input type="radio" name="q7" value="0"> Type faster</label>
+</div>
+
+<div class="question">
+<p>8. Why is a database used in applications?</p>
+<label><input type="radio" name="q8" value="0"> To design UI</label>
+<label><input type="radio" name="q8" value="1"> To store and manage data</label>
+<label><input type="radio" name="q8" value="0"> To create internet</label>
+<label><input type="radio" name="q8" value="0"> To play videos</label>
+</div>
+
+<div class="question">
+<p>9. If a student scores low in quizzes, what should be done first?</p>
+<label><input type="radio" name="q9" value="0"> Stop learning</label>
+<label><input type="radio" name="q9" value="1"> Practice basics again</label>
+<label><input type="radio" name="q9" value="0"> Ignore results</label>
+<label><input type="radio" name="q9" value="0"> Delete app</label>
+</div>
+
+<div class="question">
+<p>10. Which of the following best describes Python?</p>
+<label><input type="radio" name="q10" value="0"> Web browser</label>
+<label><input type="radio" name="q10" value="1"> Programming language</label>
+<label><input type="radio" name="q10" value="0"> Database</label>
+<label><input type="radio" name="q10" value="0"> Operating system</label>
+</div>
+
+</form>
+
+<button class="submit-btn" onclick="submitQuiz()">SUBMIT QUIZ</button>
+
+<div id="resultBox" class="result-box"></div>
+
+<button class="back-btn" onclick="goDashboard()">⬅ Back to Dashboard</button>
+
+</div>
+
+<script>
+const BASE="http://127.0.0.1:5000";
+
+async function submitQuiz(){
+let uid=localStorage.getItem("uid");
+let score=0;
+
+for(let i=1;i<=10;i++){
+let ans=document.querySelector(`input[name="q${i}"]:checked`);
+if(ans) score+=parseInt(ans.value);
+}
+
+let total=10;
+
+await fetch(BASE+"/submit_quiz",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+user_id:uid,
+topic:"Learning Quiz",
+score:score,
+total:total
+})
+});
+
+let box=document.getElementById("resultBox");
+box.style.display="block";
+box.innerHTML=" Quiz Submitted Successfully<br>Your Score: "+score+"/10";
+}
+
+function goDashboard(){
+window.location.href="dashboard.html";
+}
+</script>
+
+</body>
+</html>

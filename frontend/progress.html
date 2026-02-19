@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Progress</title>
+
+<style>
+body{
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#667eea,#764ba2);
+margin:0;
+}
+
+.container{
+width:80%;
+max-width:900px;
+margin:60px auto;
+background:white;
+padding:40px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+text-align:center;
+}
+
+h1{
+margin-bottom:20px;
+}
+
+.result{
+margin-top:20px;
+padding:20px;
+background:#f2f6ff;
+border-radius:10px;
+text-align:left;
+white-space:pre-wrap;
+}
+
+button{
+margin-top:25px;
+padding:12px 30px;
+border:none;
+border-radius:8px;
+background:#667eea;
+color:white;
+font-size:16px;
+cursor:pointer;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>📊 Student Progress</h1>
+
+<div id="progressData" class="result">Loading...</div>
+
+<button onclick="goBack()">⬅ Back to Dashboard</button>
+</div>
+
+<script>
+const BASE="http://127.0.0.1:5000";
+
+async function loadProgress(){
+let uid=localStorage.getItem("uid");
+
+let res=await fetch(BASE+"/progress/"+uid);
+let data=await res.json();
+
+document.getElementById("progressData").innerText=
+JSON.stringify(data,null,2);
+}
+
+function goBack(){
+window.location.href="dashboard.html";
+}
+
+loadProgress();
+
+history.pushState(null,null,location.href);
+
+window.onpopstate = function () {
+    window.location.href = "dashboard.html";
+};
+</script>
+
+</body>
+</html>

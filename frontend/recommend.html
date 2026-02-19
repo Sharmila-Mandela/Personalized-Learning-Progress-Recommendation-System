@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ML Recommendation</title>
+
+<style>
+body{
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#667eea,#764ba2);
+margin:0;
+}
+
+.container{
+width:80%;
+max-width:900px;
+margin:60px auto;
+background:white;
+padding:40px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+text-align:center;
+}
+
+h1{
+margin-bottom:20px;
+}
+
+.result{
+margin-top:20px;
+padding:20px;
+background:#f2f6ff;
+border-radius:10px;
+text-align:left;
+white-space:pre-wrap;
+font-size:18px;
+}
+
+button{
+margin-top:25px;
+padding:12px 30px;
+border:none;
+border-radius:8px;
+background:#667eea;
+color:white;
+font-size:16px;
+cursor:pointer;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>ML Recommendation</h1>
+
+<div id="recData" class="result">Generating recommendation...</div>
+
+<button onclick="goBack()">⬅ Back to Dashboard</button>
+</div>
+
+<script>
+const BASE="http://127.0.0.1:5000";
+
+async function loadRec(){
+let uid=localStorage.getItem("uid");
+
+let res=await fetch(BASE+"/recommend/"+uid);
+let data=await res.json();
+
+document.getElementById("recData").innerText=
+JSON.stringify(data,null,2);
+}
+
+function goBack(){
+window.location.href="dashboard.html";
+}
+
+loadRec();
+
+history.pushState(null,null,location.href);
+
+window.onpopstate = function () {
+    window.location.href = "dashboard.html";
+};
+
+
+</script>
+
+</body>
+</html>
