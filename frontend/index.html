@@ -138,7 +138,7 @@ font-size:14px;
 </div>
 
 <script>
-const BASE="https://learning-backend-7ld8.onrender.com";  
+const BASE="https://learning-backend-7ld8.onrender.com";
 
 async function login(){
 let name=document.getElementById("name").value;
@@ -149,16 +149,43 @@ alert("Please enter details");
 return;
 }
 
-let res=await fetch(BASE+"/add_user",{
+try{
+
+// wake render backend (important)
+await fetch(BASE);
+
+let res = await fetch(BASE+"/add_user",{
 method:"POST",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify({name,email})
 });
 
-let data=await res.json();
-localStorage.setItem("uid",data.user_id);
+if(!res.ok){
+alert("Server error. Try again");
+return;
+}
+
+let data = await res.json();
+console.log("User:",data);
+
+// IMPORTANT CHECK
+if(!data.user_id){
+alert("User ID not received from backend");
+return;
+}
+
+// SAVE UID
+localStorage.setItem("uid", data.user_id);
+
+// CONFIRM
+alert("Login successful");
 
 window.location.href="dashboard.html";
+
+}catch(err){
+console.log(err);
+alert("Backend connection failed. Wait 20 sec and try again.");
+}
 }
 </script>
 
